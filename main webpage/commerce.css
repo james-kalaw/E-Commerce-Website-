@@ -1,0 +1,1394 @@
+/* BASIC RESET ALL ELEMENTS*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* FOR SMOOTH LOCATING TO WEBPAGES */
+html{
+    scroll-behavior: smooth;
+}
+
+/* COMPANY LOGO PICTURE */
+.logo {
+    margin-left: 39rem;
+    margin-top: 1rem;
+}
+
+/* MOVING MARQUEE */
+.marquee {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.marquee h3 {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.marquee-wrapper {
+    width: 100000px;
+    animation: marqueeAnimation 100s linear 0s infinite running;
+}
+
+.marquee h3 .marquee-title {
+    margin-right: 20px;
+    float: left;
+}
+
+.text-stroke-black {
+    color: #5ce1e6;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: gray;
+}
+
+@keyframes marqueeAnimation {
+    100% {
+        transform: translateX(-4600px);
+    }
+}
+
+/* NAVIGATION BAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg,#5de0e6, #004aad);
+    padding: 1rem 5rem;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: sticky; /* FOLLOW THROUGH NAVIGATION BAR*/
+    top: 0; /* MAKES THE NAVBAR STICK ON THE TOP */
+    z-index: 1000; /* KEEPING THE NAVBAR ABOVE THE CONTENT */
+}
+
+/* NAV LINKS STYLES */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+/* UNDERLINE DESIGN WHEN HOVERING NAV LINKS */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.2s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: black;
+}
+
+/* NAV BAR BUTTONS */
+.nav-buttons button {
+    background-color: #1E90FF;
+    color: white;
+    border: 1px solid white;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.nav-buttons .sign-in {
+    background-color: white;
+    color: #1E90FF;
+    border: none;
+}
+
+.nav-buttons .log-in {
+    background-color: #1E90FF;
+    border: none;
+}
+
+.nav-buttons button:hover {
+    background-color: #5ce1e6;
+    color: white;
+}
+
+.fa-solid{
+    font-size: 30px;
+    padding: 12px;
+    color: white;
+    transition: 0.4s;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.fa-solid:hover{
+    color: cyan;
+    cursor: pointer;
+}
+
+/* PROMOTIONAL PICTURES STYLES */
+.slider {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(45deg, #5ce1e6, #9abeef, #5de0e6, #004aad, #b4bef0, #c3b6e8);
+    background-size: 400% 400%; /* This stretches the gradient for smoother animation */
+    animation: gradientShift 10s ease infinite; /* Define the animation duration and loop */
+    padding-bottom: 20px;
+}
+
+/* ANIMATED LINEAR GRADIENT BACKGROUND */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.slides {
+    display: flex;
+    width: 500%; /* TOTAL WIDTH OF THE PROMOTIONAL PICTURES */
+    transition: transform 0.5s ease; /* SMOOTH TRANSITION FOR THE PICTURES */
+}
+
+.slide {
+    width: 20%; 
+    flex-shrink: 0; /* PREVENTS THE PICS TO SHRINK */
+}
+
+.slide img {
+    width: 80%; 
+    height: auto; 
+    margin-top: 30px;
+    transition: transform 0.5s ease; 
+    box-shadow: 15px 12px 14px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+/* CIRCLE PAGINATION STYLES */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* TRANSITION FOR BACKGROUND COLOR OF THE DOT */
+}
+
+input[type="radio"] {
+    display: none; /* HIDE RADIO BUTTOMS*/
+}
+
+/* ANIMATION FOR SELECTED SLIDE */
+#slide1:checked ~ .slides {
+    transform: translateX(0%);
+}
+
+#slide2:checked ~ .slides {
+    transform: translateX(-20%);
+}
+
+#slide3:checked ~ .slides {
+    transform: translateX(-40%);
+}
+
+#slide4:checked ~ .slides {
+    transform: translateX(-60%);
+}
+
+#slide5:checked ~ .slides {
+    transform: translateX(-80%);
+}
+
+/* CHANGE COLOR OF THE CIRCLE PAGINATION */
+#slide1:checked ~ .pagination label[for="slide1"],
+#slide2:checked ~ .pagination label[for="slide2"],
+#slide3:checked ~ .pagination label[for="slide3"],
+#slide4:checked ~ .pagination label[for="slide4"],
+#slide5:checked ~ .pagination label[for="slide5"] {
+    background-color: white;
+    transform: scale(1.6); /* ENLARGING THE DOT ON-CLICK */
+}
+
+/* PROMOTIONAL VIDEO SECTION */
+video{
+    margin-top: 40px;
+    width: 50%;
+    margin-left: 50px;
+    box-shadow: 15px 12px 14px rgba(0, 0, 0, 0.2);
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    border-radius: 15   px;
+}
+
+@keyframes appear {
+    from{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px)
+    }
+}
+
+.view{
+    display: flex;
+    align-items: center;
+    padding: 3rem;
+    gap: 2rem;
+    background-color: #f4f4f4;
+    box-shadow: 10px 15px 14px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    width: 90%;
+    height: 500px;
+    margin: 5rem auto;
+}
+
+.view h4{
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    padding-bottom: 20px;
+    animation: fromright linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+
+}
+
+.view p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    animation: fromright linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    line-height: 1.5;
+}
+
+@keyframes fromright {
+    from{
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px)
+    }
+}
+
+/* PRODUCTS SECTION */
+#products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* FIND YOUR PLATFORM SECTION */
+.title h1 {
+    margin-top: 40px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+    margin-left: 380px;
+    text-align: center;
+    color: #5ce1e6;
+    background-color: #004aad;
+    width: 600px;
+    padding: 20px 0;
+    border-radius: 40px;
+}
+
+/* PRODUCT CATEGORIES */
+.prod1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 4rem;
+}
+
+.prod1 h1 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+    color: #004aad;
+    margin-left: 20px;
+    z-index: 1;
+}
+
+.imgs1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.product-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 14px 10px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+    animation: prod linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    z-index: 1;
+}
+
+.product-item img:hover {
+    transform: scale(1.10);
+}
+
+.product-item p {
+    margin-top: 1rem;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-weight: bold;
+    animation: prod linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+@keyframes prod{
+    from{
+        opacity: 0;
+        scale: 0.5;
+    }
+    to{
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+/* MOVING CIRCLES */
+#prod:before{
+    content: '';
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background: linear-gradient(blue, cyan);
+    transform: translate(-490px, -150px);
+    margin-top: 700px;
+    margin-left: 1600px;
+    margin-bottom: 400px;
+    overflow: hidden;
+    animation: circletwo 400s linear 0s infinite running;
+}
+
+#prod3:before{
+    content: '';
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background: linear-gradient(blue, cyan);
+    transform: translate(-490px, -150px);
+    margin-left: 100px;
+    margin-top: 700px;
+    animation: circlethree 150s linear 0s infinite running;
+}
+
+@keyframes circletwo{
+    100% {
+        transform: translateX(-4600px);
+    }
+}
+
+@keyframes circlethree{
+    100% {
+        transform: translateX(1000px);
+    }
+}
+
+/* ABOUT US ( DEVELOPER'S SECTION ) */
+.aboutus h1{
+    margin-top: 100px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 60px;
+    text-align: center;
+    color: #5ce1e6;
+    background-color: #004aad;
+    width: 400px;
+    padding: 8px;
+    border-radius: 40px;
+    margin-left: 550px;
+}
+
+.aboutus p{
+    margin-top: 2rem;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    text-align: center;
+    animation: prod linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    line-height: 1.5;
+}
+
+.aboutus h2{
+    margin-top: 1000px;
+}
+
+/* DEVELOPER'S IMAGES */ 
+.people{
+    display: flex;
+    margin-top: 20px;
+    animation: person linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+@keyframes person {
+    from{
+        opacity: 0;
+        transform: translateY(150px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px)
+    }
+}
+
+.team{
+    text-align: center;
+}
+
+.team img{
+    transition: 0.3s;
+}
+
+.team img:hover{
+    transform: scale(0.9);
+    border: 2px ridge cyan;
+}
+
+
+/* FLIPPING NAME-TAGS */
+.cont{
+    width: 270px;
+    height: 100px;
+    perspective: 800px;
+    margin-left: 18px;
+}
+  
+.cont:hover > .card {
+    cursor: pointer;
+    transform: rotateY(180deg);
+    transition-duration: 1s;
+}
+  
+.card { 
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+}
+  
+.front,
+.back {
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+    background-color: #6257e3; 
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front h4{
+    margin-top: 25px;
+    margin-left: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 21px;
+  }
+
+.pos p{
+    color: white;
+    margin: 0;
+    margin-left: 10px;
+    animation: none;
+}
+  
+.back {
+    background-color: #3a3a3a;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; 
+}
+  
+.team i{
+    font-size: 2.5rem; 
+    color: #ffffff; 
+    transition-duration: 0.4s;
+}
+
+.team i:hover{
+    color: cyan;
+}
+
+
+/* FOOTER ( CONTACT US SECTION ) */
+.contact-title {
+    background: linear-gradient(45deg, #5ce1e6, #9abeef, #5de0e6, #004aad, #b4bef0, #c3b6e8);
+    margin-top: 100px;
+    height: 70vh;
+    background-size: 400% 400%; 
+    animation: gradientShift 10s ease infinite; 
+    text-align: center;
+    font-size: 33px;
+    font-family: "Bebas Neue", sans-serif;
+    padding-top: 50px;
+}
+
+/* COMMENTS SECTION */
+.contact-title .comments{
+    float: left;
+    margin-top: 20px;
+    margin-left: 40px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.comments h3{
+    margin-right: 370px;
+    margin-bottom: 6px;
+}
+
+textarea{
+    padding: 1em;
+    color: #666666;
+    background-color: #dddddd;
+    width: 600px;
+    height: 220px;
+    margin-left: 60px;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    resize: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    transition: all 0.2s;
+    outline: none;
+}
+
+textarea:hover{
+    cursor: pointer;
+    background-color: #eeeeee;
+}
+textarea:focus{
+    cursor: text;
+    color: #333333;
+    background-color: white;
+    border-color: #333333;
+}
+
+.comments button{
+    padding: 10px;
+    width: 140px;
+    background-color: #6257e3;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.comments button:hover{
+    background-color: cyan;
+    color: #004aad;
+}
+
+.combut{
+    float: right;
+    margin-top: 176px;
+    margin-left: 10px;
+}
+
+.comments a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.helps{
+    margin-top: 25px;
+    margin-left: 70px;
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.comments a:hover{
+    color: black;
+}
+
+.comments a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.2s;
+}
+
+.comments a:hover::after {
+    width: 100%;
+}
+
+/* OUR CONTACTS AND LINKS */
+.socials{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.socials h2{
+    margin-right: 360px;
+}
+
+.logs {
+    display: flex; 
+    gap: 40px; 
+    justify-content: center; 
+    margin-left: 100px; 
+}
+
+.logs a {
+    text-decoration: none;
+    color: black;
+    font-size: 60px; 
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.logs a:hover{
+    color: white;
+    transform: scale(0.8);
+}
+
+.emailing h3{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    margin-top: 40px;
+    margin-right: 340px;
+}
+
+.emailing p{
+    margin-right: 255px;
+    margin-top: 20px;
+}
+
+.footlogo{
+    margin-right: 1080px;
+    margin-top: -80px;
+}
+
+/* Modal Styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 20px;
+  width: 120%; /* Wider modal */
+  max-width: 700px; /* Ensure it fits on smaller screens */
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#product-close-btn{
+    position: sticky;
+    bottom: 520px;
+    left: 1100px;
+    background: #ccc;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+#product-close-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Layout for Image and Texts */
+.modal-content-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; /* Space between image and text */
+  padding: 20px;
+}
+
+#modal-image {
+  width: 260px; /* Adjust image size */
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-text {
+  flex: 1; /* Take remaining space */
+}
+
+.modal-text h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.modal-text p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+#modal-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 34px;
+  color: #004aad;
+  margin-bottom: 15px;
+}
+
+/* Buttons and Discount Section */
+.modal-actions {
+  flex-direction: column;
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  background: #00c4cc;
+  color: #004aad;
+  font-family: 'Bebas Neue', sans-serif;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+#buy-now-btn:hover,
+#add-to-cart-btn:hover {
+  background-color: #004aad;
+  color: #00c4cc;
+}
+
+.discount {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  
+}
+
+.discount input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #00c4cc;
+  margin-bottom: 5px;
+  width: 240px;
+}
+
+/* Icons Section */
+.modal-icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-icons div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  gap: px;
+}
+
+.modal-icons i {
+  font-size: 21px;
+  color: green;
+}
+
+.modal-icons p {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
+
+#secure{
+  margin-left: 360px;
+}
+
+#sec{
+  margin-left: 360px;
+}
+
+.close-btn{
+    position: absolute;
+    top: 20px;
+    left: 460px;
+    color: white;
+}
+
+/* PAYMENT MODAL */
+.modal-content2 {
+    width: 90%;
+    max-width: 700px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-body2 h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 36px;
+  color: #004aad; 
+  margin-bottom: 20px;
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+.payment img {
+  width: 80%;
+  object-fit: contain;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.payment label {
+  display: block;
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.payment label input[type="checkbox"] {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+  
+button#confirm-purchase-btn {
+  padding: 10px 20px;
+  background-color: #00c4cc;
+  color: #004aad;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 25px;
+  margin-top: 20px;
+  transition: 0.2s;
+  margin-left: 400px;
+}
+
+button#confirm-purchase-btn:hover {
+  background-color: #004aad;
+  color: #00c4cc;
+}
+
+
+/* PAYMENT PROCESS MODAL */
+#payment-process-modal .modal-content2 {
+    width: 100%; /* Adjust to fit the screen width */
+    max-width: 500px; /* Limit the max width */
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    margin: auto;
+    height: auto;
+}
+
+/* Modal Header */
+#payment-process-modal .modal-body2 h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 36px;
+    color: #004aad;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form Fields */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 18px;
+    color: #004aad;
+    margin-bottom: 5px; /* Space between label and input */
+    font-family: 'Bebas Neue';
+}
+
+.input-group input {
+    width: 100%; /* Make the input fields take full width */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* QR Code Section */
+.input-group label[for="qr-code"] {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#qr-code {
+    width: 160px; /* Adjust QR code size */
+    height: 160px;
+    object-fit: contain;
+    margin-top: -10px;
+}
+
+/* Submit Button Section */
+.submit-button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button button {
+    padding: 10px 20px;
+    background-color: #00c4cc;
+    color: #004aad;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 25px;
+    transition: 0.2s;
+}
+
+.submit-button button:hover {
+    background-color: #004aad;
+    color: #00c4cc;
+}
+
+/* Privacy Text */
+.privacy-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 15px;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.payment-process-close-btn{
+    position: absolute;
+    top: 20px;
+    left: 460px;
+    background: #ccc;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.payment-process-close-btn:hover{
+    background-color: black;
+    color: white;
+}
+
+.secondary-close-btn{
+    position: sticky;
+    bottom: 520px;
+    left: 1100px;
+    background: #ccc;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.secondary-close-btn:hover{
+    background-color: black;
+    color: white;
+}
+
+/* SUCCESSFUL PAYMENT MODAL */
+.modal-content-success {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-body-success h2 {
+    font-size: 36px;
+    color: #004aad;
+    margin-bottom: 10px;
+    font-family: 'Bebas Neue';
+}
+
+.modal-body-success p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.submit-buttons button {
+    display: block; /* Makes buttons appear as block elements */
+    width: 100%; /* Makes buttons take full width of container */
+    max-width: 400px; /* Optional: limits button width */
+    margin: 10px auto; /* Adds space between buttons and centers them */
+    padding: 10px 20px;
+    background-color: #00c4cc;
+    color: #004aad;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 25px;
+    transition: 0.2s;
+    margin-top: 30px;
+}
+
+.submit-buttons button:hover {
+    background-color: #004aad;
+    color: #00c4cc;
+}
+
+.transaction-success-close-btn{
+    position: absolute;
+    top: 20px;
+    left: 460px;
+    background: #ccc;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.transaction-success-close-btn:hover{
+    background-color: black;
+    color: white;
+}
+
+/* MY CART MODAL */ 
+.modal-content5 {
+    position: relative;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    height: 80vh; /* Fixed height */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Prevent resizing due to content */
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content5 h2{
+    color: #004aad;
+    font-family: 'Bebas Neue';
+    font-size: 35px;
+    margin-left: 185px;
+    margin-bottom: 40px;
+}   
+
+/* CART MODAL SCROLL */
+.cart-scroll {
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Close button sticks to the top */
+#cart-close-btn {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #ccc;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+#cart-close-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Individual Cart Item */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.cart-item img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cart-item p {
+    font-family: 'Bebas Neue'; 
+    color: #004aad; 
+    font-size: 28px;
+}
+
+.remove-item-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    transition-duration: 0.2s;
+}
+
+.remove-item-btn:hover {
+    background-color: #c82333;
+}
+
+/* Cart Actions */
+.cart-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cart-actions button {
+    background-color: #00c4cc;
+    color: #004aad;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.cart-actions button:hover {
+    background-color: #004aad;
+    color: #00c4cc;
+}
+
+.cart-actions p{
+    font-size: 20px;
+    font-family: 'Bebas Neue';
+}
+
+#cart-items-container {
+    font-family: 'Arial', sans-serif; /* Clean and modern font */
+    font-size: 20px; /* Adjust size for better visibility */
+    color: #555; /* Subtle gray for a professional look */
+    text-align: center; /* Center the message */
+    margin-left: 10px;
+}
+
+/* ACCOUNT MODAL STYLING */
+.modal2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content6 {
+  background: white;
+  padding: 20px;
+  width: 400px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.modal-content6 h2{
+    font-family: 'Bebas Neue';
+    font-size: 40px;
+    color: #004aad;
+}
+
+.modal-content6 p{
+    font-family: 'Bebas Neue';
+    font-size: 25px;
+    margin-top: 20px;
+    font-weight: normal;
+}
+
+.modal-content6 label{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal-content6 input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-content6 button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 10px 0;
+  cursor: pointer;
+  font-family: 'Bebas Neue';
+  font-weight: normal;
+  font-size: 20px;
+  margin-top: 40px;
+  transition-duration: 0.3s;
+  border-radius: 10px;
+}
+
+.modal-content6 button:hover{
+    background-color: #004aad;
+    color: #00c4cc;
+}
+
+.modal-content6 .close-button {
+  background-color: #555;
+}
+
+.modal-content6 .close-button:hover{
+    background-color: black;
+    color: white;
+}
